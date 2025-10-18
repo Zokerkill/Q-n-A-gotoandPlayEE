@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 700px;
+}
+.text1{
+    color: #000;
+}
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    background: linear(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.card-header h1 {
+    font-size: 2.2em;
+    margin-bottom: 8px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+}
+
+.card-header p {
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.video-section {
+    padding: 40px;
+}
+
+.video-player {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+}
+
+.info-section {
+    background: #f8f9fa;
+    padding: 25px 40px;
+    border-top: 1px solid #e9ecef;
+}
+
+.info-section h3 {
+    color: #495057;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.info-section ul {
+    list-style: none;
+    color: #6c757d;
+}
+
+.info-section li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.info-section li:before {
+    content: "•";
+    color: #667eea;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.card-footer {
+    background: #fff;
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+    color: #6c757d;
+    font-size: 0.9em;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    
+    .card-header {
+        padding: 25px 20px;
+    }
+    
+    .card-header h1 {
+        font-size: 1.8em;
+    }
+    
+    .video-section {
+        padding: 25px 20px;
+    }
+    
+    .info-section {
+        padding: 20px;
+    }
+    
+    .card-footer {
+        padding: 15px 20px;
+    }
+}
+
+.video-player {
+    position: relative;
+}
+
+.video-player::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transform: translateX(-100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+video:loadeddata ~ .video-player::before {
+    animation: none;
+    display: none;
+}
